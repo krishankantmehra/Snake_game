@@ -1,14 +1,14 @@
 var canvas = document.getElementById('game');
 var context = canvas.getContext('2d');
 var eaten = false;
-var grid = 16;
+var grid = 15;
 var count = 0;
 var score = 0;
 var difficult = 10;
 
 var snake = {
-  x: 160,
-  y: 160,
+  x: 150,
+  y: 150,
   
   // snake velocity. moves one grid length every frame in either the x or y direction
   dx: grid,
@@ -22,8 +22,8 @@ var snake = {
 };
 
 var apple = {
-  x: 320,
-  y: 320
+  x: 300,
+  y: 300
 };
 
 // get random whole numbers in a specific range
@@ -84,6 +84,7 @@ function loop() {
   // draw snake one cell at a time
   if(eaten === false)context.fillStyle = 'green';
   else context.fillStyle = "gray";
+  
   snake.cells.forEach(function(cell, index) {
     
     // drawing 1 px smaller than the grid creates a grid effect in the snake body so you can see how long it is
@@ -93,9 +94,9 @@ function loop() {
     if (cell.x === apple.x && cell.y === apple.y) {
       snake.maxCells++;
 
-      // canvas is 400x400 which is 25x25 grids 
-      apple.x = getRandomInt(0, 25) * grid;
-      apple.y = getRandomInt(0, 25) * grid;
+      // canvas is 600*510 which is 40*34 grids 
+      apple.x = getRandomInt(0,40) * grid;
+      apple.y = getRandomInt(0,34) * grid;
       score += 100;
 
       if(difficult >= 4)difficult -= 0.5;
@@ -145,7 +146,7 @@ document.addEventListener('keydown', function(e) {
     snake.dx = 0;
   }
   response = false;
-  setTimeout(()=>{response = true},100);
+  setTimeout(()=>{response = true},50);
   }
 
   //Play Again
