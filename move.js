@@ -26,8 +26,7 @@ var apple = {
   y: 300
 };
 
-// get random whole numbers in a specific range
-// @see https://stackoverflow.com/a/1527820/2124254
+
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
@@ -99,7 +98,7 @@ function loop() {
       apple.y = getRandomInt(0,34) * grid;
       score += 100;
 
-      if(difficult >= 4)difficult -= 0.5;
+      if(difficult > 4)difficult -= 0.5;
       
     }
 
@@ -135,6 +134,7 @@ document.addEventListener('keydown', function(e) {
     snake.dy = -grid;
     snake.dx = 0;
   }
+  
   // right arrow key
   else if (e.which === 39 && snake.dx === 0) {
     snake.dx = grid;
@@ -145,9 +145,12 @@ document.addEventListener('keydown', function(e) {
     snake.dy = grid;
     snake.dx = 0;
   }
+
+
   response = false;
   setTimeout(()=>{response = true},50);
   }
+   
 
   //Play Again
   if(eaten && e.which === 32){
