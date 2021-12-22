@@ -1,2 +1,6 @@
 # Snake_game
-To run this project put all files in same folder and run html file.
+## About 
+A basic snake game using HTML, CSS and JavaScript.
+
+## How to run
+Put all files in same folder and open game.html with browser.
